@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AuthContext } from "../auth.context.jsx"
 import { loginUser, registerUser, logoutUser, getCurrentUser } from "../services/auth.api.js"
 
@@ -48,7 +48,25 @@ export const useAuth = () => {
     
     
 }
+
+useEffect(() => {
+        // Fetch the current user when the component mounts
+        const getAndSetCurrentUser = async () => {
+            setLoading(true);
+            try{
+                const data = await getCurrentUser();
+                setUser(data.user)
+            }catch (error) {
+                console.error("Error fetching current user:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        getAndSetCurrentUser();
+    }, []);
 return {
+    // Return the user, loading state, and authentication functions from the hook
         user,
         loading,
         handleLogin,
