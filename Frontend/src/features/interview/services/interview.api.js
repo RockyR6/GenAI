@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an axios instance with default settings for the interview API.
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://interview-prep-server-ten.vercel.app/api/auth",
     withCredentials: true,
 })
 

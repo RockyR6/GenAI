@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance with the base URL for the backend API
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api/auth', // Base URL for the backend API
+    baseURL: 'https://interview-prep-server-ten.vercel.app/api/auth', // Base URL for the backend API
     withCredentials: true, // Include credentials (cookies) in requests
 })
 
