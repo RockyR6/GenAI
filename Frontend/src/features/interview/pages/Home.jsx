@@ -31,8 +31,8 @@ const Home = () => {
 
             {/* Page Header */}
             <header className='page-header'>
-                <h1>Create Your Custom <span className='highlight'>Interview Plan</span></h1>
-                <p>Let our AI analyze the job requirements and your unique profile to build a winning strategy.</p>
+                <h1>Create Your <span className='highlight'>Interview Plan</span></h1>
+                <p>We'll compare your resume to the job so you know exactly where you stand.</p>
             </header>
 
             {/* Main Card */}
@@ -148,4 +148,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
