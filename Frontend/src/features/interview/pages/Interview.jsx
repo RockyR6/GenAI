@@ -154,9 +154,10 @@ const Interview = () => {
 
   if (loading || !report) {
     return (
-      <main className="loading-screen">
-        <h1>Loading your interview plan...</h1>
-      </main>
+      <main className='loading-screen'>
+            <div className="spinner" />
+            <h1>"Loading your interview plan..."</h1>
+        </main>
     );
   }
   const scoreColor =

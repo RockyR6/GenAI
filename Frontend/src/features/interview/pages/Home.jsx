@@ -17,12 +17,17 @@ const Home = () => {
         const data = await generateReport({ jobDescription, selfDescription, resumeFile })
         navigate(`/interview/${data.id}`)
     }
+    const handleLogout = () => {
+    localStorage.removeItem("token")
+    navigate('/login')
+    }
 
     if (loading) {
         return (
             <main className='loading-screen'>
-                <h1>Loading your interview plan...</h1>
-            </main>
+            <div className="spinner" />
+            <h1>"Loading..."</h1>
+        </main>
         )
     }
 
@@ -31,6 +36,7 @@ const Home = () => {
 
             {/* Page Header */}
             <header className='page-header'>
+                <button onClick={handleLogout} className='logout-btn'>Logout</button>
                 <h1>Create Your <span className='highlight'>Interview Plan</span></h1>
                 <p>We'll compare your resume to the job so you know exactly where you stand.</p>
             </header>
