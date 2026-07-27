@@ -18,7 +18,7 @@ const Home = () => {
         const data = await generateReport({ jobDescription, selfDescription, resumeFile })
         navigate(`/interview/${data.id}`)
     }
-    const handleLogout = () => {
+    const handleLogout = async() => {
     await logoutUser()
     localStorage.removeItem("token")
     navigate('/login')
