@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+import { logoutUser } from '../../auth/services/auth.api.js'
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
         navigate(`/interview/${data.id}`)
     }
     const handleLogout = () => {
+    await logoutUser()
     localStorage.removeItem("token")
     navigate('/login')
     }
@@ -26,7 +28,7 @@ const Home = () => {
         return (
             <main className='loading-screen'>
             <div className="spinner" />
-            <h1>"Loading..."</h1>
+            <h1>Loading...</h1>
         </main>
         )
     }
@@ -36,10 +38,25 @@ const Home = () => {
 
             {/* Page Header */}
             <header className='page-header'>
-                <button onClick={handleLogout} className='logout-btn'>Logout</button>
-                <h1>Create Your <span className='highlight'>Interview Plan</span></h1>
-                <p>We'll compare your resume to the job so you know exactly where you stand.</p>
-            </header>
+
+    <div className='header-top'>
+        <button
+            onClick={handleLogout}
+            className='logout-btn'
+        >
+            Logout
+        </button>
+    </div>
+
+    <h1>
+        Create Your <span className='highlight'>Interview Plan</span>
+    </h1>
+
+    <p>
+        We'll compare your resume to the job so you know exactly where you stand.
+    </p>
+
+</header>
 
             {/* Main Card */}
             <div className='interview-card'>

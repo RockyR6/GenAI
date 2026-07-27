@@ -156,7 +156,7 @@ const Interview = () => {
     return (
       <main className='loading-screen'>
             <div className="spinner" />
-            <h1>"Loading your interview plan..."</h1>
+            <h1>Loading your interview plan...</h1>
         </main>
     );
   }
